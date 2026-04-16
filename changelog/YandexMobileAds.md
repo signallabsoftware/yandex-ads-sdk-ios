@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## Version 8.0.0-beta.2
+
+### Added
+
+- Added support for the Feed Ad format.
+- Added documentation on automating SKAdNetwork identifiers updates.
+- Added 8.x AI-assisted migration tool.
+
+### Updated
+
+- Updated minimum supported `DivKitBinaryCompatibilityFacade` version to `5.3.0`.
+- Updated SKAdNetwork identifiers list.
+
 ## Version 8.0.0-beta.1
 
 ### Added

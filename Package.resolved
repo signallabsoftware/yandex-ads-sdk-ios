@@ -32,8 +32,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/divkit/divkit-ios-facade",
       "state" : {
-        "revision" : "dfc09c522095ff3d1fe7e6048021e0f5b7877a32",
-        "version" : "5.2.1"
+        "revision" : "14765531578bd575b6b99ac0d068e6d1378a8520",
+        "version" : "5.3.0"
       }
     },
     {
@@ -68,8 +68,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/myTargetSDK/mytarget-ios-spm",
       "state" : {
-        "revision" : "d182928190c54d909a5b6fae214974735bae7add",
-        "version" : "5.37.5"
+        "revision" : "1519f943cfdbfa85519242d150d6648cb2433586",
+        "version" : "5.36.2"
       }
     },
     {

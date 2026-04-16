@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## Version 1.13.0
+
+### Updated
+
+- Updated minimum supported `GoogleUserMessagingPlatform` version to `3.1.0`
+- Updated minimum supported `YandexMobileAds` version to `8.0.0-beta.2`
+
 ## Version 1.12.0
 
 ### Updated

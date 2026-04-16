@@ -857,6 +857,7 @@
 			buildConfigurationList = 1467E379271EA91700DF104A /* Build configuration list for PBXNativeTarget "YandexMobileAdsExample" */;
 			buildPhases = (
 				A14B4794493782656F5B7E01 /* [CP] Check Pods Manifest.lock */,
+				SKADIDS001UPDATE0SCRIPT001 /* Update Yandex SKAdNetwork IDs */,
 				1467E34B271EA91500DF104A /* Sources */,
 				1467E34C271EA91500DF104A /* Frameworks */,
 				1467E34D271EA91500DF104A /* Resources */,
@@ -876,6 +877,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 64F70DFF2B0B64D300A31CE8 /* Build configuration list for PBXNativeTarget "YandexMobileAdsExampleSPM" */;
 			buildPhases = (
+				SKADIDS001UPDATE0SCRIPT001 /* Update Yandex SKAdNetwork IDs */,
 				64F70DB92B0B64D300A31CE8 /* Sources */,
 				64F70DF62B0B64D300A31CE8 /* Frameworks */,
 				64F70DF82B0B64D300A31CE8 /* Resources */,
@@ -1045,6 +1047,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		SKADIDS001UPDATE0SCRIPT001 /* Update Yandex SKAdNetwork IDs */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 8;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Update Yandex SKAdNetwork IDs";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/update_skad_ids.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1323,7 +1345,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = "8.0.0-beta.1";
+				CURRENT_PROJECT_VERSION = "8.0.0-beta.2";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -1342,7 +1364,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
-				MARKETING_VERSION = "8.0.0-beta.1";
+				MARKETING_VERSION = "8.0.0-beta.2";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1386,7 +1408,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = "8.0.0-beta.1";
+				CURRENT_PROJECT_VERSION = "8.0.0-beta.2";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1399,7 +1421,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
-				MARKETING_VERSION = "8.0.0-beta.1";
+				MARKETING_VERSION = "8.0.0-beta.2";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
