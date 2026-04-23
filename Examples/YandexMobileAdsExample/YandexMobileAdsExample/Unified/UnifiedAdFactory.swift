@@ -107,6 +107,7 @@ enum FactoryIDs {
     static let bannerStickyYandex = "demo-banner-yandex"
     static let bannerStickyAdFox = "demo-banner-adfox-image"
     static let carouselAdFox = "R-M-243655-10"
+    static let feedAdYandex = "demo-feed-yandex"
 }
 
 @MainActor
@@ -190,6 +191,9 @@ enum UnifiedAdFactory {
 
         case .instreamInrolls:
             return YandexAdBreaksAdapter(pageID: "demo-instream-vmap-yandex")
+
+        case .feedAd:
+            return YandexFeedAdAdapter(adUnitID: FactoryIDs.feedAdYandex)
 
         case .carousel:
             return AdFoxSliderAdapter(adUnitID: FactoryIDs.carouselAdFox)

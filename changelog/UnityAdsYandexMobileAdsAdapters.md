@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## Version 4.16.6.0
+
+### Updated
+
+- Updated minimum supported `UnityAds` version to `4.16.6`
+- Updated minimum supported `YandexMobileAds` version to `8.0.0`
+
 ## Version 4.16.6.0-beta.2
 
 ### Updated

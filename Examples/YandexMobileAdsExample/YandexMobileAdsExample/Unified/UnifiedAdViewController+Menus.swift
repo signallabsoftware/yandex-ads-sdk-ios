@@ -27,6 +27,8 @@ extension UnifiedAdViewController {
             return Array(FactoryIDs.banner.keys)
         case .carousel:
             return [.adfox]
+        case .feedAd:
+            return [.yandex]
         }
     }
     

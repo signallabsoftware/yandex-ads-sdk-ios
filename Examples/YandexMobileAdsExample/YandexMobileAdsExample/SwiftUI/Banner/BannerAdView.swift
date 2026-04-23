@@ -22,7 +22,7 @@ struct BannerContentView: View {
             }
             .pickerStyle(.segmented)
             .onChange(of: viewModel.selectedSize) { _ in
-                viewModel.bannerRequest = nil
+                viewModel.bannerState = nil
                 viewModel.isBannerVisible = false
                 viewModel.adState = .idle
             }
@@ -33,13 +33,12 @@ struct BannerContentView: View {
                 if !viewModel.isBannerVisible {
                     AdPlaceholderView(state: viewModel.adState)
                 }
-                if let request = viewModel.bannerRequest {
-                    Banner(size: viewModel.selectedSize.bannerSize, request: request)
+                if let state = viewModel.bannerState {
+                    Banner(state: state)
                         .onAdLoad { _ in viewModel.handleLoad() }
                         .onAdFailure { viewModel.handleError($0) }
                         .onAdClick { viewModel.appendLog("didClick") }
                         .onAdImpression { _ in viewModel.appendLog("didTrackImpression") }
-                        .id(viewModel.bannerID)
                         .opacity(viewModel.isBannerVisible ? 1 : 0)
                 }
             }

@@ -2,11 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
-## Version 5.37.5.0-beta.2
+## Version 5.36.2.0
+
+### Updated
+
+- Updated minimum supported `YandexMobileAds` version to `8.0.0`
+- Updated minimum supported `myTargetSDK` version to `5.36.2`
+
+## Version 5.36.2.0-beta.2
 
 ### Updated
 
 - Updated minimum supported `YandexMobileAds` version to `8.0.0-beta.2`
+- Updated minimum supported `myTargetSDK` version to `5.36.2`
 
 ## Version 5.37.5.0-beta.1
 

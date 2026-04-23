@@ -12,6 +12,7 @@ final class UnifiedAdViewController: UIViewController, UITableViewDelegate {
     var currentInlineConstraints: [NSLayoutConstraint] = []
     var bulkAds: [NativeAd] = []
     var bulkTableConstraints: [NSLayoutConstraint] = []
+    var feedAdCollectionViewConstraints: [NSLayoutConstraint] = []
     var loadFullWidthConstraints: [NSLayoutConstraint] = []
     var loadHalfConstraints: [NSLayoutConstraint] = []
     var presentHalfConstraints: [NSLayoutConstraint] = []
@@ -156,7 +157,17 @@ final class UnifiedAdViewController: UIViewController, UITableViewDelegate {
                            forCellReuseIdentifier: NativeBulkTableViewCell.reuseIdentifier)
         return tableView
     }()
-    
+
+    lazy var feedAdCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        cv.translatesAutoresizingMaskIntoConstraints = false
+        cv.backgroundColor = .systemBackground
+        cv.isHidden = true
+        return cv
+    }()
+
     private lazy var gearButton: UIBarButtonItem = {
         let item = UIBarButtonItem(
             image: UIImage(systemName: "gear"),
@@ -279,7 +290,7 @@ final class UnifiedAdViewController: UIViewController, UITableViewDelegate {
         hasLoadedCurrentAd = false
         updatePresentAvailability()
         
-        if !(adapter is NativeBulkProviding) {
+        if !(adapter is NativeBulkProviding) && !(adapter is FeedAdProviding) {
             updatePlaceholder(state: .loading, visible: true, animated: true)
         }
         adapter.load()
