@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## Version 7.9.0.0
+
+### Updated
+
+- Updated minimum supported `Ads-Global` version to `7.9.0.6`
+- Updated minimum supported `YandexMobileAds` version to `8.0.0`
+
 ## Version 7.9.0.0-beta.2
 
 ### Updated

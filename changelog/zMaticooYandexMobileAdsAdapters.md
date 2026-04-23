@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## Version 1.5.6.0
+
+### Updated
+
+- Updated minimum supported `YandexMobileAds` version to `8.0.0`
+- Updated minimum supported `zMaticoo` version to `1.5.6`
+
 ## Version 1.5.6.0-beta.2
 
 ### Updated

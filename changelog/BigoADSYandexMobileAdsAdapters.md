@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## Version 5.0.6.0
+
+### Updated
+
+- Updated minimum supported `BigoADS` version to `5.0.6`
+- Updated minimum supported `YandexMobileAds` version to `8.0.0`
+
 ## Version 5.0.6.0-beta.2
 
 ### Updated

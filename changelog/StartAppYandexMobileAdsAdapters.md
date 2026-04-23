@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## Version 4.13.0.0
+
+### Updated
+
+- Updated minimum supported `StartAppSDK` version to `4.13.0`
+- Updated minimum supported `YandexMobileAds` version to `8.0.0`
+
 ## Version 4.13.0.0-beta.2
 
 ### Updated

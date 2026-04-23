@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## Version 8.4.4.0
+
+### Updated
+
+- Updated minimum supported `Fyber_Marketplace_SDK` version to `8.4.4`
+- Updated minimum supported `YandexMobileAds` version to `8.0.0`
+
 ## Version 8.4.4.0-beta.2
 
 ### Updated

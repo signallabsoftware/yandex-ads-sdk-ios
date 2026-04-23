@@ -28,10 +28,9 @@ enum BannerSizeType: String, CaseIterable, Identifiable {
 final class BannerViewModel: ObservableObject {
     @Published var logs: [String] = []
     @Published var adState: SwiftUIAdState = .idle
-    @Published var bannerRequest: AdRequest? = nil
+    @Published var bannerState: BannerState? = nil
     @Published var isBannerVisible = false
     @Published var selectedSize: BannerSizeType = .fixed
-    @Published private(set) var bannerID: UUID = .init()
 
     let adUnitID = "demo-banner-yandex"
 
@@ -39,7 +38,10 @@ final class BannerViewModel: ObservableObject {
         guard adState != .loading else { return }
         reset()
         adState = .loading
-        bannerRequest = AdRequest(adUnitID: adUnitID)
+        bannerState = BannerState(
+            size: selectedSize.bannerSize,
+            request: AdRequest(adUnitID: adUnitID)
+        )
         appendLog("Loading \(selectedSize.rawValue)...")
     }
 
@@ -58,9 +60,9 @@ final class BannerViewModel: ObservableObject {
     func appendLog(_ message: String) {
         logs.append(message)
     }
-    
+
     private func reset() {
         isBannerVisible = false
-        bannerID = .init()
+        bannerState = nil
     }
 }

@@ -2,6 +2,134 @@
 
 All notable changes to this project will be documented in this file.
 
+## Version 8.0.0
+
+[Full migration guideline](https://ads.yandex.com/helpcenter/en/dev/ios/release/8-0-0-migration)
+
+### Added
+
+- Added `AppOpenAdLoader.loadAd(with:)` async method.
+- Added `InterstitialAdLoader.loadAd(with:)` async method.
+- Added `NativeAd.loadImages()` async method.
+- Added `NativeAdLoader.loadAd(with:options:)` async method.
+- Added `NativeBulkAdLoader.loadAds(with:adsCount:options:)` async method.
+- Added `RewardedAdLoader.loadAd(with:)` async method.
+- Added `SliderAd.loadImages()` async method.
+- Added `SliderAdLoader.loadAd(with:options:)` async method.
+- Added `YandexAds.setAdapterIdentity(_:)` method for setting mediation adapter identity. Call before `YandexAds.initializeSDK()`.
+- Added `hasVideo` property to `NativeAdMedia`.
+- Added `offerID` property to `Creative`.
+- Added `partnerText` property to `AdInfo`.
+- Added `placeID` property to `Creative`.
+- Added class `NativeAdOptions` for configuring native ad loading options, including automatic image loading.
+- Added SwiftUI API for banner, interstitial, rewarded, and app open ads.
+- Added support for the Feed Ad format.
+- Added documentation on automating SKAdNetwork identifiers updates.
+- Added 8.x AI-assisted migration tool.
+
+### Updated
+
+- Updated minimum supported `AppMetricaAdSupport` version to `6.0.0`.
+- Updated minimum supported `AppMetricaCore` version to `6.0.0`.
+- Updated minimum supported `AppMetricaIDSync` version to `6.0.0`.
+- Updated minimum supported `AppMetricaLibraryAdapter` version to `6.0.0`.
+- Updated minimum supported `DivKitBinaryCompatibilityFacade` version to `5.3.0`.
+- Updated SKAdNetwork identifiers list.
+
+### Breaking changes
+
+- Added `adUnitID` property to `AdRequest`. Now `adUnitID` is passed as a parameter of the `AdRequest` initializer, not as a separate parameter in the loading methods.
+- Class `MobileAds` was renamed to `YandexAds`.
+- Class `VideoController` was removed.
+- Constant `kYMAAdsErrorDomain` was removed.
+- Constant `kYMANativeAdErrorDomain` was removed. instead.
+- Constants from `YMAVersion` were removed. Use `YandexAds.version.stringValue` instead.
+- Function `AdViewDelegate.close(_:)` was removed.
+- Function `BannerAdSize.fixedSize(withWidth:height:)` was renamed to `BannerAdSize.fixed(width:height:)`.
+- Function `BannerAdSize.inlineSize(withWidth:maxHeight:)` was renamed to `BannerAdSize.inline(width:maxHeight:)`.
+- Function `BannerAdSize.stickySize(withContainerWidth:)` was renamed to `BannerAdSize.sticky(containerWidth:)`.
+- Function `YandexAds.audioSessionManager` is computed property now.
+- Function `NativeAd.bind(toSliderView:)` was removed. Use `SliderAd.bind(with:)` instead.
+- Function `NativeAdDelegate.close(_:)` was removed.
+- Function `NativeAdDelegate.nativeAd(_:didTrackImpressionWith:)` was renamed to `NativeAdDelegate.nativeAd(_:didTrackImpression:)`.
+- Function `Rating.rating()` was removed. Use property instead.
+- Function `Rating.setRating(_:)` was removed. Use property `Rating.rating` instead.
+- Function `SliderAdDelegate.sliderAdDidClose(_:)` was removed.
+- Initializer `AdView(adUnitID:adSize:)` was renamed to `AdView(adSize:)`.
+- Method `AdView.loadAd()` was removed. Use `AdView.loadAd(with:)` instead.
+- Method `AdViewDelegate.viewControllerForPresentingModalView()` was removed.
+- Method `AppOpenAdLoader.loadAd(with:)` was renamed to `AppOpenAdLoader.loadAd(with:completion:)`. The `completion` parameter was added replacing the delegate methods.
+- Method `InterstitialAdLoader.loadAd(with:)` was renamed to `InterstitialAdLoader.loadAd(with:completion:)`. The `completion` parameter was added replacing the delegate methods.
+- Method `NativeAd.loadImages()` was renamed to `NativeAd.loadImages(completionHandler:)`. The `completionHandler` parameter was added replacing the observer method.
+- Method `NativeAdDelegate.viewControllerForPresentingModalView()` was removed.
+- Method `NativeAdLoader.loadAd(with:)` was renamed to `NativeAdLoader.loadAd(with:options:completion:)`. An optional `options` parameter was added. The `completion` parameter was also added replacing the delegate methods.
+- Method `NativeBulkAdLoader.loadAds(with:adsCount:)` was renamed to `NativeBulkAdLoader.loadAds(with:adsCount:options:completion:)`. An optional `options` parameter was added. The `completion` parameter was also added replacing the delegate methods.
+- Method `RewardedAdLoader.loadAd(with:)` was renamed to `RewardedAdLoader.loadAd(with:completion:)`. The `completion` parameter was added replacing the delegate methods.
+- Method `SliderAd.loadImages()` was renamed to `SliderAd.loadImages(completionHandler:)`. The `completionHandler` parameter was added replacing the observer method.
+- Method `SliderAdLoader.loadAd(with:)` was renamed to `SliderAdLoader.loadAd(with:options:completion:)`. An optional `options` parameter was added. The `completion` parameter was also added replacing the delegate methods.
+- Method `loadBidderToken(requestConfiguration:completionHandler:)` in `BidderTokenLoader` was renamed to `loadBidderToken(request:completionHandler:)`.
+- Method ‘`AppOpenAdDelegate(_:didFailToShowWithError:)` was renamed to `AppOpenAdDelegate(_:didFailToShow:)`.’
+- Method ‘`AppOpenAdDelegate(_:didTrackImpressionWith:)` was renamed to `AppOpenAdDelegate(_:didTrackImpression:)`.’
+- Method ‘`InterstitialAdDelegate(_:didFailToShowWithError:)` was renamed to `InterstitialAdDelegate(_:didFailToShow:)`.’
+- Method ‘`InterstitialAdDelegate(_:didTrackImpressionWith:)` was renamed to `InterstitialAdDelegate(_:didTrackImpression:)`.’
+- Method ‘`RewardedAdDelegate(_:didFailToShowWithError:)` was renamed to `RewardedAdDelegate(_:didFailToShow:)`.’
+- Method ‘`RewardedAdDelegate(_:didTrackImpressionWith:)` was renamed to `RewardedAdDelegate(_:didTrackImpression:)`.’
+- Method ‘`SliderAdDelegate(_:didTrackImpressionWith:)` was renamed to `SliderAdDelegate(_:didTrackImpression:)`.’
+- Properties `NativeAd.adAttributes`, `NativeAd.creativeID`, `NativeAd.campaignID` are removed. Use property `NativeAd.adInfo.creatives` instead.
+- Properties `SliderAd.adAttributes`, `SliderAd.creativeID`, `SliderAd.campaignID` are removed. Use property `SliderAd.adInfo.creatives` instead.
+- Property `AdInfo.adSize` is removed.
+- Property `AdInfo.adUnitId` was renamed to `AdInfo.adUnitID`.
+- Property `AdInfo.data` was renamed to `AdInfo.extraData`.
+- Property `AdRequestError.adUnitId` was renamed to `AdRequestError.adUnitID`.
+- Property `AdView.adAttributes` is removed. Use property `AdView.adInfo.creatives` instead.
+- Property `AdView.adUnitID` was removed. Use `AdView.adInfo?.adUnitID` instead after loading the ad.
+- Property `AdView.info` is removed. Use property `AdView.adInfo.partnerText` instead.
+- Property `AdView.videoController` was removed.
+- Property `AppOpenAd.adAttributes` is removed. Use property `AppOpenAd.adInfo.creatives` instead.
+- Property `InterstitialAd.adAttributes` is removed. Use property `InterstitialAd.adInfo.creatives` instead.
+- Property `Native.info` is removed. Use property `Native.adInfo.partnerText` instead.
+- Property `RewardedAd.adAttributes` is removed. Use property `RewardedAd.adInfo.creatives` instead.
+- Property `SliderAd.info` is removed. Use property `SliderAd.adInfo.partnerText` instead.
+- Property `Version.buildMetadataIdentifiers` was removed.
+- Property `Version.prereleaseIdentifiers` was removed.
+- Protocol `VideoDelegate` was removed.
+- Swift version that SDK is built with updated from 5 to 6
+- The `AdErrorCode` has been deleted.
+- The `NativeErrorCode` has been deleted.
+- The `reset` method has been removed from the `NativeVideoPlaybackProgressControl` protocol.
+- The `targetInfo` field in the `AdRequestTokenConfiguration` and `BidderTokenRequestConfiguration` has been renamed to `targeting'. The class name of this field has been renamed from `AdTargetInfo`to`AdTargeting’.
+- The constants `kYMAGenderFemale` and `kYMAGenderMale' have been removed. Use the new `Gender` class.
+- The field `isYandexMobileAdsError` has been removed from `Error` and `NSError`.
+- The field `isYandexMobileNativeAdsError` has been removed from `Error` and `NSError’.
+- The fields `age`, `gender`, `location`, `contextQuery` and `contextTags` have been removed from `AdRequest`. Use the new `targeting` field.
+- The initializer `BidderTokenLoader` no longer accepts the parameter `mediationNetworkName`.
+- The methods `MobileAds.setLocationTrackingEnabled', `MobileAds.setAgeRestrictedUser` have been renamed. Use methods `YandexAds.setLocationTracking` and `Yandex.adssetAgeRestricted` instead.
+- The methods of `AppOpenAdDelegate`, `InterstitialAdDelegate`, `RewardedAdDelegate`, `NativeAdDelegate`, `SliderAdDelegate` are no longer optional.
+- The previously deprecated `bannerAdSize` property in the `BidderTokenRequestConfiguration` has been deleted. Use `BidderTokenRequest.banner(size:targeting:parameters:)`.
+- The properties of `NativeAdAssets` class are immutable from now on.
+- The type of the `warning` field in NativeAdAssets`has been changed to`NativeAdWarning`.
+- Xcode version that SDK is built with updated from 16.4 to 26.2
+- `AdRequestConfiguration` was removed. Use `AdRequest` for all ad types.
+- `AppOpenAdDelegate`, `InterstitialAdDelegate`, `RewardedAdDelegate`, `NativeAd`, `NativeAdDelegate`, `SliderAd`, `SliderAdDelegate`, `AdViewDelegate`, `NativeVideoPlaybackMuteControlDelegate`, `NativeVideoPlaybackProgressControl` protocols are now MainActor-isolated.
+- `AppOpenAdLoaderDelegate`, `InterstitialAdLoaderDelegate`, `RewardedAdLoaderDelegate`, `NativeAdLoaderDelegate`, `NativeBulkAdLoaderDelegate`, `SliderAdLoaderDelegate`, `NativeAdImageLoadingObserver` protocols have been removed. The end of loading is handled via a completion handler or async/await from now on.
+- `AppOpenAd`, `InterstitialAd`, `RewardedAd`, `NativeVideoPlaybackControls`, `NativeAdViewData`, `NativeVideoPlaybackMuteControl` classes are now MainActor-isolated.
+- `BidderTokenLoader.init()` is removed. Use `BidderTokenLoader.init(mediationNetworkName:)` instead.
+- `BidderTokenRequestConfiguration(adType:)` is removed. Use factory methods instead: `banner(size:targeting:parameters:)`, `interstitial(targeting:parameters:)`, `rewarded(targeting:parameters:)`, `native(targeting:parameters:)` or `appOpenAd(targeting:parameters:)`
+- `BidderTokenRequestConfiguration` class has been renamed to `BidderTokenRequest`.
+- `MutableAdRequestConfiguration` was removed. Use `AdRequest` instead.
+- `MutableAdRequest` was removed. Use `AdRequest` instead.
+- `MutableNativeAdRequestConfiguration` was removed. Use `AdRequest` instead.
+- `MutableNativeTemplateAppearance` was removed. Use `NativeTemplateAppearance` instead.
+- `NativeAdRequestConfiguration` was removed. Use `AdRequest` for native ads.
+- `NativeBannerView` class and all related classes (`NativeTemplateAppearence`, `NativeTemplateHorizontalOffset`, `ButtonAppearance`, `ImageAppearance`, `LabelAppearance`, `RatingAppearance`, `SizeConstraint`, `SizeConstraintType`) have been removed.
+- `YMANativeAdView` was renamed to `NativeAdView.`
+- `YMANativeMediaView` was renamed to `NativeMediaView`.
+- The `AdView` class has been renamed to `BannerAdView`. The `AdViewDelegate` protocol has been renamed to `BannerAdViewDelegate`. Delegate methods have been renamed accordingly — `adViewDidLoad` to `bannerAdViewDidLoad`, `adViewDidFailLoading` to `bannerAdViewDidFailLoading`, `adViewDidClick` to `bannerAdViewDidClick`, `adView(_:didTrackImpression:)` to `bannerAdView(_:didTrackImpression:)`.
+- Delegate methods have been removed from the public API:
+  - `AdViewDelegate`: `adViewWillLeaveApplication`, `adView(_:willPresentScreen:)`, `adView(_:didDismissScreen:)`
+  - `NativeAdDelegate`: `nativeAdWillLeaveApplication`, `nativeAd(_:willPresentScreen:)`, `nativeAd(_:didDismissScreen:)`
+  - `SliderAdDelegate`: `sliderAdWillLeaveApplication`, `sliderAd(_:willPresentScreen:)`, `sliderAd(_:didDismissScreen:)`
+
 ## Version 8.0.0-beta.2
 
 ### Added
